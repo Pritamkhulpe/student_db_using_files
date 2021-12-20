@@ -48,5 +48,9 @@ def deleteStudentByID():
     
 
 
-def studentAge(student :Student):
-    pass
+def studentAge():
+    print("*"*20,'age of student ',"*"*20)
+    id = input("Enter the ID of a student you want age ==>")
+    students = Student.view_students()
+    print(students)
+
