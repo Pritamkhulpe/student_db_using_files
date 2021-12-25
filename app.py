@@ -21,7 +21,7 @@ while True:
     elif ch == '4':
         studentsAboveEighty()
     elif ch == '5':
-        studentAge("kunal")
+        studentAge()
     else:
          ch  = input("You have entered a wrong choice? Do you want to continue?\nPress 'y' to CONTINUE or anything else to EXIT --->")  
          if ch != "y":
