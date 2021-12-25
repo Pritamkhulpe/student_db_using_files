@@ -1,4 +1,5 @@
 from model.student import Student
+from datetime import date, datetime
 
 def createStudent():
     print("Creating a student .....")
@@ -49,8 +50,29 @@ def deleteStudentByID():
 
 
 def studentAge():
-    print("*"*20,'age of student ',"*"*20)
-    id = input("Enter the ID of a student you want age ==>")
+    # printing msgs and taking input id from the user
+    print("*"*20,'calculate age of a student ',"*"*20)
+    print("calculating age of a students by ID..")
+    id = input("Enter the ID of a student you want to calculate age of ==>")
+    # check for the student having the id,,
     students = Student.view_students()
-    print(students)
+    student_id = None
+    for student in students:
+        if student.s_id == id:
+            student_id = student
+            break
+    # if student_id == None:
+    if not student_id:
+        print("entered ID is incorrect.")
+        return
+
+    # found the student now calcuklate the age of that stdudent
+
+    print(f"Age of student with id {student_id.s_id} ----> date of birth -->{student_id.s_d_o_b}")
+    sdate = datetime.strptime(student_id.s_d_o_b.replace("\n",""), '%d-%m-%Y').date()
+    no_days = date.today() - sdate 
+    # no_days will be a timedelta objet 
+    age = int(no_days.days/365.24)
+    print(age)
+
 
